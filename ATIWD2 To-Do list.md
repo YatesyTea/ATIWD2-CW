@@ -38,8 +38,8 @@ ini_set('auto_detect_line_endings', TRUE);
 
 XMLWriter() library useful.
 
-* [ ] PHP script converting csv to xml files with any repeating data being held in the station section rather than records sections.
-* [ ] XSD schema for XML validation
+- [ ] PHP script converting csv to xml files with any repeating data being held in the station section rather than records sections.
+- [ ] XSD schema for XML validation
 
 ## Task 3
 
