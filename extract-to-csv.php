@@ -66,6 +66,8 @@ while (!feof($read_file)) {
     	
     $current_line = fgets($read_file);
 	
+	# Used 2nd answer in link below to learn explode in this form:
+	# https://stackoverflow.com/questions/16371524/how-can-i-split-a-csv-file-in-php
 	[$date_time,$NOx,$NO2,$NO,$siteID,$PM10,$NVPM10,$VPM10,$NVPM2_5,$PM2_5,$VPM2_5,$CO,$O3,$SO2,$Temperature,$RH,$Air_Pressure,$loc,$geo_point_2d] = explode(';', $current_line);
 	
 	# Conversion from string to UNIX datetime format.
@@ -82,7 +84,8 @@ while (!feof($read_file)) {
 	
 		/*Could have looped through like previous parts of the doc.
 		  However switch case runs fine, and I don't know how efficient
-		  the loops would be in PHP in comparison to this simple statement.*/
+		  the loops would be in PHP in comparison to this simple statement.
+		  This is not flexible as I would like for this program however.*/
 		switch($current_line[0]) {
 			
 			case 188:
