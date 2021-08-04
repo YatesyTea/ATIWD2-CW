@@ -5,9 +5,10 @@
 $st = microtime(true);
 
 # Function to convert from csv to XML
-function convert($infile, $outfile) {
+function convert($in, $out) {
     
-    $infile = fopen($infile,$outfile);
+    # Opening our Csv file.
+    $csv_in = fopen($in, 'r');
 
 }
 
@@ -17,7 +18,7 @@ function convert($infile, $outfile) {
 function generateFileName($prefix, $num, $postfix){
     $str_num = (string)$num;
     $concant = $prefix . $str_num . $postfix;
-    echo($concant);
+    echo($concant.'<br>');
     return $concant;
 }
 
