@@ -28,6 +28,8 @@ function convert($in, $out)
             $header_line = $current_line;
             # Load second line to set station stuff.
             $current_line = fgetcsv($csv_in);
+            
+            # Add amp catch
 
             # Create Geocode
             $geocode = ((string)$current_line[15] . ',' . (string)$current_line[16]);
