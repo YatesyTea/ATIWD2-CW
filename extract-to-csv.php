@@ -79,7 +79,7 @@ while (!feof($read_file)) {
 	# Create array to destroy 
 	$current_line = array($siteID, $ts, $NOx, $NO2, $NO, $PM10, $NVPM10, $VPM10, $NVPM2_5, $PM2_5, $VPM2_5, $CO, $O3, $SO2, $loc, $long, $lat);
 	
-	# Check whether NOx or CO2 values are null or not.
+	# Check that NOx or CO2 are not both null.
 	if ($current_line[2] != null or $current_line[11] != null) {
 	
 		/*Could have looped through like previous parts of the doc.
@@ -159,8 +159,7 @@ while (!feof($read_file)) {
 			case 501:
 				fputcsv($data_501, $current_line);
 				break;
-		}
-	
+		}	
 	}
 	$loops++;
 }

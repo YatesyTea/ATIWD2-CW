@@ -9,13 +9,13 @@
 
 ## Task 1
 
-- [ ] Separate input data into different csv files for each monitoring station.
+- [x] Separate input data into different csv files for each monitoring station.
 
-  - [ ] If column 2 and 12 are null then throw input.
+  - [x] If column 2 and 12 are null then throw input.
 
-- [ ] Move tables, and convert date/time string to UNIX timestamp.
+- [x] Move tables, and convert date/time string to UNIX timestamp.
 
-  - [ ] This format displayed
+  - [x] This format displayed
 
     ```
     siteID,ts,nox,no2,no,pm10,nvpm10,vpm10,nvpm2.5,pm2.5,vpm2.5,co,o3,so2,loc,lat,long
