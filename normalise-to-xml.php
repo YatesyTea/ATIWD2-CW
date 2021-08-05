@@ -15,13 +15,30 @@ function convert($in, $out) {
     $xml ->openMemory();
     $xml ->startDocument('1.0', 'UTF-8');
     
+    
+    $csv_in = fopen($in, 'r');
+    while (!feof($csv_in)) {
+        $current_line = fgetcsv($csv_in);
 
-    /*  Here we want to set station
-        id:
-        name: 
-        geocode: (combo of lat and long)
-    */
+        if($current_line[0] = 'siteID'){
+            # Setting what the titles are, as an array to check against later.
+            $header_line = $current_line;
 
+            /*  Here we want to set station
+            id:
+            name: 
+            geocode: (combo of lat and long)*/
+            $xml -> startElement('station');
+
+
+
+        }
+        print('Count: '.count($current_line)); # Adresses length of array.
+    }
+    $xml -> endElement('station');
+    $xml -> endDocument();
+
+    file_put_contents($out, $xml->outputMemory());
 
     # Setting ID of station.
     // $second_list[0];
@@ -47,9 +64,6 @@ function convert($in, $out) {
 
         /*  Loop through $current_line_array and add values to record wherever value != null.
             Skipping out the first value, and the last 3, since they are the repeating values.*/
-  
-        }   
-    }
 }
 
 
