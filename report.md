@@ -21,14 +21,7 @@ Module Code: UFCFR5-15-3
 
 ## XML Processing Models
 
-```php
-<?
-    echo("testing github code blocks")
-```
 
-
-
- 
 
 ## Discussion Extending Visualisation
 
@@ -43,9 +36,34 @@ Module Code: UFCFR5-15-3
 - Extend your skills in the use use of key technologies: PHP, XML & XPATH, Parsing, DOM, JavaScript & JSON.
 - Learn and use markdown syntax.
 
+### Section 1 and 2
+
 Divided big data into separate file (div and conq)
+
+
+
 Removed useless data (cleaning identified data w/ bad values), restructured into more desirable format.
+
+
+
 Cleaning completed
+
+
+
+XML normalisation
+
+
+Creation of the tags
+
+
+
+Formatting of XML
+
+
+
+### Charting and mapping
+
+
 
 
 
@@ -53,3 +71,18 @@ Cleaning completed
 
 ## Links to Files
 
+Links as Github Links
+
+[]
+
+Links as Local Links
+
+[CSV Data](csvData)
+
+[XML Data](xmlData)
+
+[Task 1 PHP File](extract-to-csv.php)
+
+[Task 2 PHP File](normalise-to-xml.php)
+
+[Task 3 File](api_chart.html)
