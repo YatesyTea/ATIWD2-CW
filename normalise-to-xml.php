@@ -1,6 +1,9 @@
 <?php
 
 # Setting measurements.
+
+use function PHPSTORM_META\type;
+
 $time_taken = microtime(true);
 $loops = 0;
 
@@ -8,8 +11,9 @@ $loops = 0;
 function convert($in, $out) {
 
     # Create New Temporary XML Document.
-    $temp_xml  = new DomDocument('1.0',"UTF-8");
-    $temp_xml->formatOutput = true;
+    $xml = new XMLWriter();
+    $xml ->openMemory();
+    $xml ->startDocument('1.0', 'UTF-8');
     
 
     /*  Here we want to set station
@@ -17,55 +21,35 @@ function convert($in, $out) {
         name: 
         geocode: (combo of lat and long)
     */
-    $csv_in = fopen($in, 'r');
-    $first_line = fgets($csv_in);
-    $second_line = fgets($csv_in);
+
 
     # Setting ID of station.
+    // $second_list[0];
 
     # Setting Name (location) of station.
+    // $second_list[14];
 
     # Setting Geocode (Lat + Long) of station.
-
-    fclose($csv_in);
-
+    // $geo_input = (string)$second_list[15].','.(string)$second_list[16];
 
 
-    # Opening our Csv file.
-    $csv_in = fopen($in, 'r');
 
-    #   Use CSV Header line to generate names for usage in XML creation
-    $header_line = fgets($csv_in);
-    print_r($header_line);
-    $temp_list = list($siteID,$ts,$nox,$no2,$no,$PM10,$NVPM10,$VPM10,$NVPM2_5,$PM2_5,$VPM2_5,$CO,$O3,$SO2,$loc,$lat,$long) = explode(',', $header_line);
-    $header_names = array();
-    
-    /*  Loop through $temp_list and push the 
-        header string values to $header_names*/
-    for ($i = 1; $i <= count($temp_list)-4; $i++) {
-        array_push($header_names, $temp_list[$i]);
-    }
+
+    # Opening our Csv file for usage in loop.
+
+    # Wasting header, with faster fgets.
+
     
 
-    while(!feof($csv_in)) {
-        # Load line.
-        $current_line = fgets($csv_in);
 
-        /*  Break it down into pieces to use as tags.
-            CSV headers is: siteID,ts,nox,no2,no,pm10,nvpm10,vpm10,nvpm2.5,pm2.5,vpm2.5,co,o3,so2,loc,lat,long.*/
-        [$siteID, $ts, $NOx, $NO2, $NO, $PM10, $NVPM10, $VPM10, $NVPM2_5, $PM2_5, $VPM2_5, $CO, $O3, $SO2, $loc, $long, $lat] = explode(';', $current_line);
+        # Load as array
 
-        # Taking values we want.
-        $current_line_array = array($ts, $NOx, $NO2, $NO, $PM10, $NVPM10, $VPM10, $NVPM2_5, $PM2_5, $VPM2_5, $CO, $O3, $SO2);
 
-        # Loop through $current_line_array and add values to record wherever value != null.
-
-        
-        
+        /*  Loop through $current_line_array and add values to record wherever value != null.
+            Skipping out the first value, and the last 3, since they are the repeating values.*/
+  
+        }   
     }
-
-
-
 }
 
 
@@ -112,10 +96,10 @@ for ($i = count($data_nums_int) - 1; $i >= 0; $i--) {
 }
 
 # Using the CSV to XML function using loops through the generated file names.
-for ($i = count($data_nums_int) - 1; $i >= 0; $i--) {
-    convert($csvfilenames[$i],$xmlfilenames[$i]);
-    $loops++;
-    echo($loops.' files converted.<br>');
-}
-
-echo('Complete in '.$time_taken.'ms.');
+// for ($i = count($data_nums_int) - 1; $i >= 0; $i--) {
+//     convert($csvfilenames[$i],$xmlfilenames[$i]);
+//     $loops++;
+//     echo($loops.' files converted.<br>');
+// }
+convert('csvData/data_188.csv', 'xmlData/data_188.xml');
+echo('Complete in '.($time_taken/1000000).'ms.');
