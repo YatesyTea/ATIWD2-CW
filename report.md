@@ -97,12 +97,13 @@ The main improvement to this implementation aside from using $getcsv()$ would be
 
 File for this section found here: [Task 2a PHP File](normalise-to-xml.php)
 
-Initial creation of XML Data was done through the $XMLWriter()$​ functions.
+Initial creation of XML Data was done through the $XMLWriter()$​​ functions.
 Created elements, assigned attributes.
 Used header line to create all of the inputted tags.
 Looped through both arrays.
 
 The main issue within this task was the formatting of the XML document in terms of spacing and indentation.
+There was also a lack of error handling for the & character.
 I was not able to find a solution within the time limit, thereby cutting the ability to do task 2b in terms of the XSD derliverable.
 
 
