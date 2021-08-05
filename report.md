@@ -43,6 +43,13 @@ In conclusion for simpler tasks and larger datasets, streaming methods are likel
 
 ## Discussion Extending Visualisation
 
+Extension of visualisation of the charts could consist of a number of features:
+
+* Having filterable displays of data from locations.
+* Having filterable display of which polluter is being displayed.
+* Displaying a wider range of time (or customisable amount).
+* Choosing which plot to display dynamically, rather than just both charts with dummy data.
+
 
 
 ## Evaluation of Learning Outcomes Achieved
@@ -86,19 +93,24 @@ The main improvement to this implementation aside from using $getcsv()$ would be
 
 
 
-XML normalisation
+### CSV to XML Normalisation
+
+File for this section found here: [Task 2a PHP File](normalise-to-xml.php)
+
+Initial creation of XML Data was done through the $XMLWriter()$​ functions.
+Created elements, assigned attributes.
+Used header line to create all of the inputted tags.
+Looped through both arrays.
+
+The main issue within this task was the formatting of the XML document in terms of spacing and indentation.
+I was not able to find a solution within the time limit, thereby cutting the ability to do task 2b in terms of the XSD derliverable.
 
 
 
-Creation of the tags
+### Charting and Mapping
 
-
-
-Formatting of XML
-
-
-
-### Charting and mapping
+The charting and mapping section of this was incomplete, it mainly consisted of template code from google developers, with some values changed to see how the input array functioned.
+With more development parsing the CSV, or XML files for the data, and inputting into a 2d array, and then passing the array as a variable to the google provided chart draw function.
 
 
 
@@ -140,6 +152,10 @@ Formatting of XML
     Therefore in this project vscode with a preview window was chosen to edit the markdown files.
 
     Addition of links(within doc, web, and local files), images, and code blocks within the markdown file, shows proficient usage with the technology.
+
+* GitHub
+
+  * Simple init, branch, push, and pull commands were used in this project.
 
 
 

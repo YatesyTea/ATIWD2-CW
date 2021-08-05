@@ -1,44 +1,59 @@
 <!-- the imports and drawchar feature are both taken from the google charts website front page.-->
 <!-- only addition to this document was comment base pseudo code for how to load the data from csv to feed into the chart api.-->
+<!-- link: https://developers-dot-devsite-v2-prod.appspot.com/chart/interactive/docs/gallery/linechart.html-->
 <html>
-    <head>
-      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-      <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-  
-        function drawChart(data) {
-          var data = google.visualization.arrayToDataTable(data)
-  
-          var options = {
-            title: 'Company Performance',
-            curveType: 'function',
-            legend: { position: 'bottom' }
-          };
+
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    
+    function drawChart(data) {
+      var data = google.visualization.arrayToDataTable([
+        ['Time', '308', '255'],
+        ['1084528800', 40.0, 40],
+        ['1084579200', 42.2, 40.3],
+        ['1084590000', 44.1, 41.2],
+        ['1084604400', 43.1, 44.3]
+      ]);
 
 
-        // function
-        // convert UNIX --> time of day (string)
-        // full date time --> parse that to just take time of day(last x chars).
+
+      var options = {
+        title: 'NOx Emissions',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+      };
+
+      /*
+      // function
+      // convert UNIX --> time of day (string)
+      // full date time --> parse that to just take time of day(last x chars).
 
 
-        // 2d array design
-        // siteID, ts, nox 
-        // 
-        // 1420156800
-        // 
-        // loop through stations
-        // [Time, station 1, 2, 3, 4, 5, 6] 
-        // [unix, ]
+        2d array design
+        siteID, ts, nox 
+       
+        1420156800
+       
+        loop through stations
+        [Time, station 1, 2, 3, 4, 5, 6] 
+        [unix, ]
 
-          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-  
-          chart.draw(data, options);
-        }
-      </script>
-    </head>
-    <body>
-      <div id="curve_chart" style="width: 900px; height: 500px"></div>
-    </body>
-  </html>
-  
+        Load data in through csv file parsing.
+      */
+
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+
+<body>
+  <div id="curve_chart" style="width: 900px; height: 500px"></div>
+</body>
+
+</html>
